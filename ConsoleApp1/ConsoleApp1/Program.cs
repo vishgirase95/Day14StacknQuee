@@ -54,6 +54,13 @@ namespace ConsoleApp19
 
         }
 
+        public void IsEmpty()
+        {
+            while (Top != null)
+            {
+                pop();
+            }
+        }
         public void Display()
         {
             Node Temp = Top;
@@ -90,6 +97,12 @@ namespace ConsoleApp19
             Console.WriteLine("--------After pooping the data----------");
             obj.Display();
 
+
+            Console.WriteLine("--------Applying IsEmpty----------");
+
+            obj.IsEmpty();
+            Console.WriteLine("--------After IsEmpty the data----------");
+            obj.Display();
         }
     }
 }
