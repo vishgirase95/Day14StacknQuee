@@ -33,6 +33,10 @@ namespace ConsoleApp19
 
 
         }
+        public void peak()
+        {
+            Top = Top.next;
+        }
 
 
         public void Display()
@@ -53,6 +57,7 @@ namespace ConsoleApp19
             obj.push(20);
             obj.push(30);
             obj.push(40);
+            obj.peak();
 
 
             obj.Display();
