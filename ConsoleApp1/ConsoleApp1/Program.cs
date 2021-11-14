@@ -30,25 +30,42 @@ namespace ConsoleApp19
 
             node.next = Top;
             Top = node;
+            Console.WriteLine("Added :" + x);
 
+        }
+        public void pop()
+        {
+            Console.WriteLine("The is poped :" + Top.data);
 
+            Top = Top.next;
         }
         public void peak()
         {
-            Top = Top.next;
-        }
+            Node temp = Top;
+           if(temp == null)
+            {
 
+                Console.WriteLine("Top is null");
+            }
+            else
+            {
+                Console.WriteLine("The peak is :" + temp.data);
+            }
+
+        }
 
         public void Display()
         {
+            Node Temp = Top;
 
-            while (Top != null)
+            while (Temp != null)
             {
-                Console.WriteLine(Top.data);
-                Top = Top.next;
+                Console.WriteLine(Temp.data);
+                Temp = Temp.next;
 
             }
         }
+    
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
@@ -57,9 +74,20 @@ namespace ConsoleApp19
             obj.push(20);
             obj.push(30);
             obj.push(40);
+
+            Console.WriteLine("--------After Adding data----------");
+
+
+            obj.Display();
+
+         
+
             obj.peak();
+            Console.WriteLine("--------After peaking the data----------");
+            obj.Display();
 
-
+            obj.pop();
+            Console.WriteLine("--------After pooping the data----------");
             obj.Display();
 
         }
