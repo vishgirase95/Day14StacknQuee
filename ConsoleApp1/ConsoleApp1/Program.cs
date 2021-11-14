@@ -8,11 +8,12 @@ namespace ConsoleApp19
 
         public Node next;
         public int data;
-
+     
         public Node(int x)
         {
             data = x;
             next = null;
+            
 
 
         }
@@ -23,6 +24,8 @@ namespace ConsoleApp19
     class Program
     {
         public Node Top = null;
+        public Node next = null;
+
 
         public void push(int x)
         {
@@ -61,10 +64,29 @@ namespace ConsoleApp19
                 pop();
             }
         }
+
+        public void Enquee(int x)
+        {
+            Node node = new Node(x);
+
+            node.next = Top;
+            Top = node;
+            Console.WriteLine("Added :" + x);
+
+        }
+        public void Deque()
+        {
+            Top = Top.next;
+
+
+        }
         public void Display()
         {
             Node Temp = Top;
-
+            if (Temp == null)
+            {
+                Console.WriteLine("It is empty");
+            }
             while (Temp != null)
             {
                 Console.WriteLine(Temp.data);
@@ -103,6 +125,19 @@ namespace ConsoleApp19
             obj.IsEmpty();
             Console.WriteLine("--------After IsEmpty the data----------");
             obj.Display();
+
+
+            Console.WriteLine("--------Quee After enquee----------");
+            obj.Enquee(1);
+            obj.Enquee(2);
+            obj.Enquee(3);
+            obj.Display();
+
+            obj.Deque();
+            Console.WriteLine("--------Quee After Denquee----------");
+            obj.Display();
+
+
         }
     }
 }
