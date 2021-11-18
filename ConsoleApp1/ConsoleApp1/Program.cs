@@ -1,4 +1,5 @@
 ﻿using System;
+using  System.Collections.Generic; 
 
 namespace ConsoleApp19
 
@@ -26,14 +27,15 @@ namespace ConsoleApp19
         public Node Top = null;
         public Node next = null;
 
-
+       
         public void push(int x)
         {
             Node node = new Node(x);
 
+            Console.WriteLine("added"+node.data);
             node.next = Top;
             Top = node;
-            Console.WriteLine("Added :" + x);
+
 
         }
         public void pop()
@@ -69,8 +71,21 @@ namespace ConsoleApp19
         {
             Node node = new Node(x);
 
-            node.next = Top;
-            Top = node;
+            if (Top == null)
+            {
+                Top = node;
+            }
+            else
+            {
+                Node temp = Top;
+
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+              
+                temp.next = node;
+            }
             Console.WriteLine("Added :" + x);
 
         }
@@ -97,14 +112,15 @@ namespace ConsoleApp19
     
         static void Main(string[] args)
         {
+            
             Console.WriteLine("Hello World!");
             Program obj = new Program();
-            obj.push(10);
-            obj.push(20);
-            obj.push(30);
-            obj.push(40);
+            obj.push(1);
+            obj.push(2);
+            obj.push(3);
+            obj.push(4);
 
-            Console.WriteLine("--------After Adding data----------");
+            Console.WriteLine("--------After PUSH data by stack----------");
 
 
             obj.Display();
@@ -112,7 +128,7 @@ namespace ConsoleApp19
          
 
             obj.peak();
-            Console.WriteLine("--------After peaking the data----------");
+            Console.WriteLine("--------After peaking the data by stack----------");
             obj.Display();
 
             obj.pop();
@@ -137,6 +153,27 @@ namespace ConsoleApp19
             Console.WriteLine("--------Quee After Denquee----------");
             obj.Display();
 
+
+            Console.WriteLine("------AFTER PUSH STACK FROM COLLECTION---------");
+
+            Stack<int> myStack = new Stack<int>();
+            myStack.Push(1);
+            myStack.Push(2);
+            myStack.Push(3);
+            myStack.Push(4);
+            foreach (var item in myStack)
+                Console.Write(item + ",");
+
+
+            Console.WriteLine("------AFTER ENQUEE FROM COLLECTION---------");
+
+            Queue<int> myQuee=new Queue<int>();
+            myQuee.Enqueue(1);
+            myQuee.Enqueue(2);
+            myQuee.Enqueue(3);
+            myQuee.Enqueue(4);
+            foreach (var item in myQuee)
+                Console.Write(item + ",");
 
         }
     }
